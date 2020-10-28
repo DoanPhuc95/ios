@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
+            <connections>
+                <outlet property="formsStackView" destination="c80-p7-Prg" id="zMi-ga-nfC"/>
+                <outlet property="resultButton" destination="rg3-3p-U0n" id="gzK-aZ-07M"/>
+                <outlet property="view" destination="iN0-l3-epB" id="78y-sI-2Hl"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFD-U2-wOE">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3i-LR-ht6">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="c80-p7-Prg">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="744"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1u-t1-xK9" customClass="HandInputView" customModule="testapp_stb" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="744"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rg3-3p-U0n">
+                                    <rect key="frame" x="24" y="756" width="366" height="50"/>
+                                    <color key="backgroundColor" name="AccentColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="dB4-ME-ftP"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="結果を取得">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="resultButtonClick:" destination="-1" eventType="touchUpInside" id="z0Z-ZN-Asb"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="rg3-3p-U0n" firstAttribute="leading" secondItem="Y3i-LR-ht6" secondAttribute="leading" constant="24" id="0d5-22-bEK"/>
+                                <constraint firstItem="c80-p7-Prg" firstAttribute="leading" secondItem="Y3i-LR-ht6" secondAttribute="leading" id="97s-Ph-qmB"/>
+                                <constraint firstAttribute="trailing" secondItem="c80-p7-Prg" secondAttribute="trailing" id="UEF-29-pXm"/>
+                                <constraint firstItem="rg3-3p-U0n" firstAttribute="top" secondItem="c80-p7-Prg" secondAttribute="bottom" constant="12" id="b5O-zO-SoY"/>
+                                <constraint firstAttribute="trailing" secondItem="rg3-3p-U0n" secondAttribute="trailing" constant="24" id="eQp-zW-sgH"/>
+                                <constraint firstItem="c80-p7-Prg" firstAttribute="top" secondItem="Y3i-LR-ht6" secondAttribute="top" id="q0M-LQ-JQs"/>
+                                <constraint firstAttribute="bottom" secondItem="rg3-3p-U0n" secondAttribute="bottom" constant="90" id="xrs-TN-bJF"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Y3i-LR-ht6" firstAttribute="height" secondItem="xFD-U2-wOE" secondAttribute="height" priority="999" id="BFm-1B-Vrc"/>
+                        <constraint firstItem="Y3i-LR-ht6" firstAttribute="leading" secondItem="xFD-U2-wOE" secondAttribute="leading" id="D0J-36-JJR"/>
+                        <constraint firstAttribute="trailing" secondItem="Y3i-LR-ht6" secondAttribute="trailing" id="WCn-uB-JkE"/>
+                        <constraint firstAttribute="bottom" secondItem="Y3i-LR-ht6" secondAttribute="bottom" id="dpp-1o-qI8"/>
+                        <constraint firstItem="Y3i-LR-ht6" firstAttribute="top" secondItem="xFD-U2-wOE" secondAttribute="top" id="gPL-Bu-acs"/>
+                        <constraint firstItem="Y3i-LR-ht6" firstAttribute="width" secondItem="xFD-U2-wOE" secondAttribute="width" id="hWn-gH-y9S"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="xFD-U2-wOE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="J1c-69-3yj"/>
+                <constraint firstItem="xFD-U2-wOE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KaK-Fc-smx"/>
+                <constraint firstAttribute="trailing" secondItem="xFD-U2-wOE" secondAttribute="trailing" id="oXa-hq-fMZ"/>
+                <constraint firstAttribute="bottom" secondItem="xFD-U2-wOE" secondAttribute="bottom" id="uBW-sN-pp1"/>
+            </constraints>
+            <point key="canvasLocation" x="139.13043478260872" y="183.48214285714286"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HandInputView" customModule="testapp_stb" customModuleProvider="target">
+            <connections>
+                <outlet property="card1" destination="hW7-el-RGL" id="gV9-yC-hSB"/>
+                <outlet property="card2" destination="9Pp-Aq-LCA" id="7Te-kg-Ru3"/>
+                <outlet property="card3" destination="6kR-cz-dE4" id="qyk-fM-mkG"/>
+                <outlet property="card4" destination="npq-rg-A91" id="5t5-JN-aOY"/>
+                <outlet property="card5" destination="cHR-BD-ubc" id="wG2-EZ-nZZ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="416"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="値を入力してください" textAlignment="natural" lineBreakMode="headTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZC-P1-57q">
+                    <rect key="frame" x="16" y="32" width="343" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="dz2-m0-2tM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                    <color key="textColor" white="0.52699593321917804" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Iv7-Sh-KG8">
+                    <rect key="frame" x="0.0" y="56" width="375" height="360"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hW7-el-RGL" customClass="CardInputView" customModule="testapp_stb" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Pp-Aq-LCA" customClass="CardInputView" customModule="testapp_stb" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="72" width="375" height="72"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kR-cz-dE4" customClass="CardInputView" customModule="testapp_stb" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="144" width="375" height="72"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npq-rg-A91" customClass="CardInputView" customModule="testapp_stb" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="216" width="375" height="72"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cHR-BD-ubc" customClass="CardInputView" customModule="testapp_stb" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="288" width="375" height="72"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="360" id="Tzv-bE-EWN"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Iv7-Sh-KG8" secondAttribute="bottom" id="1Y5-uD-yln"/>
+                <constraint firstItem="wZC-P1-57q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="3gt-Xe-HiY"/>
+                <constraint firstAttribute="trailing" secondItem="Iv7-Sh-KG8" secondAttribute="trailing" id="Riu-h7-dx2"/>
+                <constraint firstItem="wZC-P1-57q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="cey-vb-Yfv"/>
+                <constraint firstItem="Iv7-Sh-KG8" firstAttribute="top" secondItem="wZC-P1-57q" secondAttribute="bottom" constant="6" id="dYs-CD-qdu"/>
+                <constraint firstAttribute="trailing" secondItem="wZC-P1-57q" secondAttribute="trailing" constant="16" id="maC-Ac-Ny3"/>
+                <constraint firstItem="Iv7-Sh-KG8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="u8b-Lu-ftc"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="94.927536231884062" y="-137.27678571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

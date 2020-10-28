@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResultViewController" customModule="testapp_stb" customModuleProvider="target">
+            <connections>
+                <outlet property="stackResultView" destination="IeD-2A-wsc" id="2IM-vk-kAm"/>
+                <outlet property="view" destination="iN0-l3-epB" id="GVi-J3-jZW"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eey-iU-FuT">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="az7-Ei-app">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="IeD-2A-wsc">
+                                    <rect key="frame" x="0.0" y="31.5" width="414" height="864.5"/>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="IeD-2A-wsc" firstAttribute="leading" secondItem="az7-Ei-app" secondAttribute="leading" id="7zS-xx-Tta"/>
+                                <constraint firstItem="IeD-2A-wsc" firstAttribute="top" secondItem="az7-Ei-app" secondAttribute="top" constant="31.5" id="lPe-31-pjD"/>
+                                <constraint firstAttribute="bottom" secondItem="IeD-2A-wsc" secondAttribute="bottom" id="qHX-8F-sfS"/>
+                                <constraint firstAttribute="trailing" secondItem="IeD-2A-wsc" secondAttribute="trailing" id="vor-0j-SBJ"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="az7-Ei-app" secondAttribute="trailing" id="9HZ-bc-F6j"/>
+                        <constraint firstItem="az7-Ei-app" firstAttribute="width" secondItem="eey-iU-FuT" secondAttribute="width" id="AmL-Qr-c4Q"/>
+                        <constraint firstAttribute="bottom" secondItem="az7-Ei-app" secondAttribute="bottom" id="Epf-iW-mcD"/>
+                        <constraint firstItem="az7-Ei-app" firstAttribute="height" secondItem="eey-iU-FuT" secondAttribute="height" priority="999" id="lny-VW-azH"/>
+                        <constraint firstItem="az7-Ei-app" firstAttribute="top" secondItem="eey-iU-FuT" secondAttribute="top" id="s4J-iW-Vds"/>
+                        <constraint firstItem="az7-Ei-app" firstAttribute="leading" secondItem="eey-iU-FuT" secondAttribute="leading" id="zA4-OQ-uoQ"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="eey-iU-FuT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Nup-tE-uy7"/>
+                <constraint firstAttribute="trailing" secondItem="eey-iU-FuT" secondAttribute="trailing" id="ahh-Ab-Cvi"/>
+                <constraint firstItem="eey-iU-FuT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dxW-ss-tFz"/>
+                <constraint firstAttribute="bottom" secondItem="eey-iU-FuT" secondAttribute="bottom" id="eCM-T4-PiW"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="97"/>
+        </view>
+    </objects>
+</document>

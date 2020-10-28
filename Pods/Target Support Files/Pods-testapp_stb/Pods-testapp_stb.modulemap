@@ -1,0 +1,6 @@
+framework module Pods_testapp_stb {
+  umbrella header "Pods-testapp_stb-umbrella.h"
+
+  export *
+  module * { export * }
+}
