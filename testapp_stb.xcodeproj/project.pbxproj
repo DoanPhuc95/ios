@@ -38,6 +38,8 @@
 		FE93575925416A7800BA41D2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93575825416A7800BA41D2 /* Colors.swift */; };
 		FEA46E4325346F6B0004571C /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA46E4225346F6B0004571C /* ResultViewController.swift */; };
 		FEA46E57253491760004571C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA46E56253491760004571C /* HomeViewController.swift */; };
+		FECAFA96254AB270009839D5 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECAFA95254AB26F009839D5 /* NavigationBarView.swift */; };
+		FECAFAA3254AB39A009839D5 /* NavigationBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FECAFAA2254AB39A009839D5 /* NavigationBarView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,8 @@
 		FE93575825416A7800BA41D2 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		FEA46E4225346F6B0004571C /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		FEA46E56253491760004571C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FECAFA95254AB26F009839D5 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		FECAFAA2254AB39A009839D5 /* NavigationBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBarView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +212,7 @@
 		FE5829F72540101A00D38C0C /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				FECAFA94254AB255009839D5 /* NavigationBar */,
 				FE582A1425405F1F00D38C0C /* CardInputView.xib */,
 				FE582A1925405F3300D38C0C /* CardInputView.swift */,
 				FE582A3025407CFD00D38C0C /* HandInputView.swift */,
@@ -330,6 +335,15 @@
 			path = ResultView;
 			sourceTree = "<group>";
 		};
+		FECAFA94254AB255009839D5 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				FECAFA95254AB26F009839D5 /* NavigationBarView.swift */,
+				FECAFAA2254AB39A009839D5 /* NavigationBarView.xib */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -439,6 +453,7 @@
 				FE5829D5253D80E300D38C0C /* HomeViewController.xib in Resources */,
 				FE582A3625407D0800D38C0C /* HandInputView.xib in Resources */,
 				FE854EEA2541B4DB00DD215F /* HistoryViewController.xib in Resources */,
+				FECAFAA3254AB39A009839D5 /* NavigationBarView.xib in Resources */,
 				FE5829DA253D876A00D38C0C /* ResultViewController.xib in Resources */,
 				FE854ED92541A2F400DD215F /* HandHistoryView.xib in Resources */,
 				FE582A1525405F2000D38C0C /* CardInputView.xib in Resources */,
@@ -514,6 +529,7 @@
 				FE854F572547188800DD215F /* Card.swift in Sources */,
 				FE41AC572533733D00297D53 /* SceneDelegate.swift in Sources */,
 				FE854F072546195100DD215F /* ApiRouter.swift in Sources */,
+				FECAFA96254AB270009839D5 /* NavigationBarView.swift in Sources */,
 				FE582A1A25405F3400D38C0C /* CardInputView.swift in Sources */,
 				FE854EFB2545F24200DD215F /* Extension.swift in Sources */,
 				FE93575925416A7800BA41D2 /* Colors.swift in Sources */,

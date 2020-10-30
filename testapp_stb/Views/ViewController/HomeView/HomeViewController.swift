@@ -12,6 +12,8 @@ class HomeViewController: UIViewController {
 
     @IBOutlet private weak var formsStackView: UIStackView!
     @IBOutlet private weak var resultButton: UIButton!
+    @IBOutlet weak var navBarview: UIView!
+    
     
     private lazy var db: RealmManager = {
         let realm = RealmManager()
@@ -21,11 +23,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         // init bar
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
-             NSAttributedString.Key.font: UIFont(name: ".SFUIText-Medium", size:17)!]
-        let addButton = UIBarButtonItem(title: "追加", style: .plain, target: self, action: #selector(addButtonAction))
-        addButton.setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: ".SFUIText-Medium", size:17)!], for: .normal)
-        self.navigationItem.rightBarButtonItems = [addButton]
+        navBarview.addBorder(vBorder: .bottom, color: Colors.border, width: 0.5)
         // init view
         view.backgroundColor = Colors.background
         resultButton.layer.cornerRadius = 8        
@@ -38,41 +36,49 @@ class HomeViewController: UIViewController {
     }
     
     
-    @IBAction func resultButtonClick(_ sender: Any) {
-        if !isValidHand() { return }
+    @IBAction func resultButtonClick(_ sender: UIButton) {
+        sender.isUserInteractionEnabled = false
+        if !isValidHand() {
+            sender.isUserInteractionEnabled = true
+            return
+        }
         
+        showIndicator()
         var hands:[String] = []
         for view in formsStackView.subviews {
             let form = view as? HandInputView
             hands.append((form?.getHandString())!)
         }
-        
         var cards = RequestCards()
         cards.cards = hands
             
         MGConnection.request(APIRouter.check(body: cards), ResultResponse.self, completion: {(res, err) in
-            guard err == nil else { return }
+            if let e = err {
+                let message = e.mErrorMessage ?? "エラーが発生した"
+                self.showAnnounceDialog(message: message)
+                return
+            }
             // save to db
-            for card in res!.result! {
-                self.db.saveRecord(card: card)
+            if let result = res {
+                if let cards = result.result {
+                    for card in cards {
+                        self.db.saveRecord(card: card)
+                    }
+                }
             }
             // redirect to result view
+            self.dismissIndicator()
             let resultViewController = ResultViewController()
             resultViewController.result = res
             self.navigationController?.pushViewController(resultViewController, animated: true)
-            self.tabBarController?.tabBar.isHidden = true
-            self.title = ""
             self.formsStackView.removeAllSubviews()
             self.formsStackView.addArrangedSubview(HandInputView())
+            
+            sender.isUserInteractionEnabled = true
         })
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        title = "Poker"
-        tabBarController?.tabBar.isHidden = false
-    }
-    
-    @objc func addButtonAction() {
+    @IBAction func addButtonAction(_ sender: Any) {
         formsStackView.addArrangedSubview(HandInputView())
     }
     
@@ -81,9 +87,9 @@ class HomeViewController: UIViewController {
         for view in formsStackView.subviews {
             let form = view as? HandInputView
             for card in form!.cards! {
-                let isValidCard = card.getCardName().checkCardValidate()
-                card.error(isErr: !isValidCard)
-                isValid = isValid && isValidCard
+                let cardInputCheck = card.getCardName().checkCardValidate()
+                card.error(isErr: !cardInputCheck.isValid, textErr: cardInputCheck.errorText)
+                isValid = isValid && cardInputCheck.isValid
             }
         }
         return isValid

@@ -17,11 +17,13 @@ class CardInputView: BaseViewXib {
     
     func setTitle(title: String) {
         self.title.text = title
+        cardName.text = "S1"
     }
     
-    func error(isErr: Bool) {
+    func error(isErr: Bool, textErr: String = "") {
         errorIcon.isHidden = !isErr
         errorText.isHidden = !isErr
+        errorText.text = textErr
     }
     
     func clearContent() {

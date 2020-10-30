@@ -3,11 +3,13 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryViewController" customModule="testapp_stb" customModuleProvider="target">
             <connections>
+                <outlet property="navbar" destination="iwA-1c-Cbt" id="548-AV-XX5"/>
                 <outlet property="stackHistoryView" destination="Ii4-ef-suZ" id="ceB-ie-Ugt"/>
                 <outlet property="view" destination="iN0-l3-epB" id="qXi-4S-mUX"/>
             </connections>
@@ -18,13 +20,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0n-oi-YRZ">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EjI-YG-xgs">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ii4-ef-suZ">
-                                    <rect key="frame" x="0.0" y="31" width="414" height="865"/>
+                                    <rect key="frame" x="0.0" y="31" width="414" height="777"/>
                                 </stackView>
                             </subviews>
                             <constraints>
@@ -44,14 +46,37 @@
                         <constraint firstAttribute="trailing" secondItem="EjI-YG-xgs" secondAttribute="trailing" id="mD7-UG-JTV"/>
                     </constraints>
                 </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iwA-1c-Cbt" userLabel="Navigation View">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="履歴" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rL-em-1dN">
+                            <rect key="frame" x="100" y="11.5" width="214" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="6rL-em-1dN" firstAttribute="centerX" secondItem="iwA-1c-Cbt" secondAttribute="centerX" id="HPq-33-TyI"/>
+                        <constraint firstItem="6rL-em-1dN" firstAttribute="centerY" secondItem="iwA-1c-Cbt" secondAttribute="centerY" id="iDu-cV-SDB"/>
+                        <constraint firstAttribute="height" constant="44" id="l2J-X0-jj1"/>
+                        <constraint firstAttribute="trailing" secondItem="6rL-em-1dN" secondAttribute="trailing" constant="100" id="rtd-h9-Ljk"/>
+                        <constraint firstItem="6rL-em-1dN" firstAttribute="leading" secondItem="iwA-1c-Cbt" secondAttribute="leading" constant="100" id="wxY-mm-Iud"/>
+                    </constraints>
+                </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="ffj-rr-ujs"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="M0n-oi-YRZ" secondAttribute="bottom" id="2sn-1d-h8j"/>
-                <constraint firstItem="M0n-oi-YRZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="bSE-Dl-gOs"/>
+                <constraint firstItem="M0n-oi-YRZ" firstAttribute="top" secondItem="iwA-1c-Cbt" secondAttribute="bottom" id="JbY-g5-cvl"/>
                 <constraint firstItem="M0n-oi-YRZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dgp-Gw-LjQ"/>
+                <constraint firstAttribute="trailing" secondItem="iwA-1c-Cbt" secondAttribute="trailing" id="gK1-c9-M8d"/>
+                <constraint firstItem="iwA-1c-Cbt" firstAttribute="top" secondItem="ffj-rr-ujs" secondAttribute="top" id="jaT-aC-hOr"/>
+                <constraint firstItem="iwA-1c-Cbt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="r7Z-Z4-IDD"/>
                 <constraint firstAttribute="trailing" secondItem="M0n-oi-YRZ" secondAttribute="trailing" id="vNa-8z-EGU"/>
             </constraints>
-            <point key="canvasLocation" x="52" y="97"/>
+            <point key="canvasLocation" x="50.724637681159422" y="96.428571428571431"/>
         </view>
     </objects>
 </document>

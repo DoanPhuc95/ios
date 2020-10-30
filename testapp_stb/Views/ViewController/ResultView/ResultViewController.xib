@@ -3,11 +3,13 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResultViewController" customModule="testapp_stb" customModuleProvider="target">
             <connections>
+                <outlet property="navbar" destination="DTV-9E-J8K" id="SPI-GV-e9n"/>
                 <outlet property="stackResultView" destination="IeD-2A-wsc" id="2IM-vk-kAm"/>
                 <outlet property="view" destination="iN0-l3-epB" id="GVi-J3-jZW"/>
             </connections>
@@ -18,13 +20,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eey-iU-FuT">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="az7-Ei-app">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="IeD-2A-wsc">
-                                    <rect key="frame" x="0.0" y="31.5" width="414" height="864.5"/>
+                                    <rect key="frame" x="0.0" y="31.5" width="414" height="776.5"/>
                                 </stackView>
                             </subviews>
                             <constraints>
@@ -44,14 +46,52 @@
                         <constraint firstItem="az7-Ei-app" firstAttribute="leading" secondItem="eey-iU-FuT" secondAttribute="leading" id="zA4-OQ-uoQ"/>
                     </constraints>
                 </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTV-9E-J8K" userLabel="Navigation View">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="結果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2X-Wj-LSb">
+                            <rect key="frame" x="100" y="11.5" width="214" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EV5-IY-YQ4">
+                            <rect key="frame" x="22" y="11.5" width="11" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="JQa-kz-LPN"/>
+                            </constraints>
+                            <state key="normal" image="back_icon"/>
+                            <connections>
+                                <action selector="backButton:" destination="-1" eventType="touchUpInside" id="YQ5-Q0-DvZ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="AMr-aI-6ld"/>
+                        <constraint firstAttribute="trailing" secondItem="U2X-Wj-LSb" secondAttribute="trailing" constant="100" id="Bfh-4r-Ayc"/>
+                        <constraint firstItem="U2X-Wj-LSb" firstAttribute="centerY" secondItem="DTV-9E-J8K" secondAttribute="centerY" id="EF8-FS-FVX"/>
+                        <constraint firstItem="U2X-Wj-LSb" firstAttribute="centerX" secondItem="DTV-9E-J8K" secondAttribute="centerX" id="f4X-oW-13W"/>
+                        <constraint firstItem="EV5-IY-YQ4" firstAttribute="centerY" secondItem="DTV-9E-J8K" secondAttribute="centerY" id="kB7-ZR-U5F"/>
+                        <constraint firstItem="U2X-Wj-LSb" firstAttribute="leading" secondItem="DTV-9E-J8K" secondAttribute="leading" constant="100" id="m3y-Tg-m6A"/>
+                        <constraint firstItem="EV5-IY-YQ4" firstAttribute="leading" secondItem="DTV-9E-J8K" secondAttribute="leading" constant="22" id="u8a-W4-8M0"/>
+                    </constraints>
+                </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="jPY-eB-1AN"/>
             <constraints>
+                <constraint firstItem="DTV-9E-J8K" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6s7-UL-gYS"/>
+                <constraint firstAttribute="trailing" secondItem="DTV-9E-J8K" secondAttribute="trailing" id="E1R-5A-1z1"/>
                 <constraint firstItem="eey-iU-FuT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Nup-tE-uy7"/>
                 <constraint firstAttribute="trailing" secondItem="eey-iU-FuT" secondAttribute="trailing" id="ahh-Ab-Cvi"/>
-                <constraint firstItem="eey-iU-FuT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dxW-ss-tFz"/>
+                <constraint firstItem="eey-iU-FuT" firstAttribute="top" secondItem="DTV-9E-J8K" secondAttribute="bottom" id="dxW-ss-tFz"/>
                 <constraint firstAttribute="bottom" secondItem="eey-iU-FuT" secondAttribute="bottom" id="eCM-T4-PiW"/>
+                <constraint firstItem="DTV-9E-J8K" firstAttribute="top" secondItem="jPY-eB-1AN" secondAttribute="top" id="fG5-XB-9fA"/>
             </constraints>
             <point key="canvasLocation" x="139" y="97"/>
         </view>
     </objects>
+    <resources>
+        <image name="back_icon" width="11" height="20"/>
+    </resources>
 </document>

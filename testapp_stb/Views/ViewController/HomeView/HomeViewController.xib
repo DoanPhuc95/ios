@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
                 <outlet property="formsStackView" destination="c80-p7-Prg" id="zMi-ga-nfC"/>
+                <outlet property="navBarview" destination="AQw-G8-TtY" id="vFY-1s-Zc4"/>
                 <outlet property="resultButton" destination="rg3-3p-U0n" id="gzK-aZ-07M"/>
                 <outlet property="view" destination="iN0-l3-epB" id="78y-sI-2Hl"/>
             </connections>
@@ -21,22 +23,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFD-U2-wOE">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3i-LR-ht6">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="c80-p7-Prg">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="744"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="656"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1u-t1-xK9" customClass="HandInputView" customModule="testapp_stb" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="744"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="656"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         </view>
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rg3-3p-U0n">
-                                    <rect key="frame" x="24" y="756" width="366" height="50"/>
+                                    <rect key="frame" x="24" y="668" width="366" height="50"/>
                                     <color key="backgroundColor" name="AccentColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="dB4-ME-ftP"/>
@@ -70,11 +72,44 @@
                         <constraint firstItem="Y3i-LR-ht6" firstAttribute="width" secondItem="xFD-U2-wOE" secondAttribute="width" id="hWn-gH-y9S"/>
                     </constraints>
                 </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQw-G8-TtY" userLabel="Navigation View">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="025-BV-pSW">
+                            <rect key="frame" x="100" y="12" width="214" height="20.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REC-JF-kyL">
+                            <rect key="frame" x="369" y="5.5" width="35" height="33"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="追加"/>
+                            <connections>
+                                <action selector="addButtonAction:" destination="-1" eventType="touchUpInside" id="Pom-k5-SYE"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="REC-JF-kyL" secondAttribute="trailing" constant="10" id="AQr-0h-ukR"/>
+                        <constraint firstAttribute="height" constant="44" id="Oc6-RW-NME"/>
+                        <constraint firstItem="025-BV-pSW" firstAttribute="leading" secondItem="AQw-G8-TtY" secondAttribute="leading" constant="100" id="ehl-DA-2DU"/>
+                        <constraint firstAttribute="trailing" secondItem="025-BV-pSW" secondAttribute="trailing" constant="100" id="iez-11-Tnu"/>
+                        <constraint firstAttribute="trailing" secondItem="REC-JF-kyL" secondAttribute="trailing" constant="10" id="ifD-84-zgW"/>
+                        <constraint firstItem="REC-JF-kyL" firstAttribute="centerY" secondItem="AQw-G8-TtY" secondAttribute="centerY" id="lM8-Gk-mW1"/>
+                        <constraint firstItem="025-BV-pSW" firstAttribute="centerY" secondItem="AQw-G8-TtY" secondAttribute="centerY" id="qLW-sB-fMD"/>
+                    </constraints>
+                </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="RzC-Jl-jlG"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="xFD-U2-wOE" firstAttribute="top" secondItem="AQw-G8-TtY" secondAttribute="bottom" id="G3j-XM-PZ5"/>
                 <constraint firstItem="xFD-U2-wOE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="J1c-69-3yj"/>
-                <constraint firstItem="xFD-U2-wOE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KaK-Fc-smx"/>
+                <constraint firstAttribute="trailing" secondItem="AQw-G8-TtY" secondAttribute="trailing" id="Kak-L2-NhB"/>
+                <constraint firstItem="AQw-G8-TtY" firstAttribute="top" secondItem="RzC-Jl-jlG" secondAttribute="top" id="crS-yP-Exs"/>
+                <constraint firstItem="AQw-G8-TtY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jlf-uL-IhZ"/>
                 <constraint firstAttribute="trailing" secondItem="xFD-U2-wOE" secondAttribute="trailing" id="oXa-hq-fMZ"/>
                 <constraint firstAttribute="bottom" secondItem="xFD-U2-wOE" secondAttribute="bottom" id="uBW-sN-pp1"/>
             </constraints>

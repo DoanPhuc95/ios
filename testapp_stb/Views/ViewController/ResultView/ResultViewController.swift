@@ -12,22 +12,31 @@ class ResultViewController : UIViewController {
     var result: ResultResponse?
     
     @IBOutlet weak var stackResultView: UIStackView!
+    @IBOutlet weak var navbar: UIView!
+    
+//    init(result: ResultResponse) {
+//        super.init()
+//        self.result = result
+//    }
+//    
+//    required init?(coder: NSCoder) {
+//        super.init(coder: coder)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initView()
-    }
-    
-    func initView() {
-        title = "結果"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
-             NSAttributedString.Key.font: UIFont(name: ".SFUIText-Medium", size:17)!]
-        // set back Button
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        navbar.addBorder(vBorder: .bottom, color: Colors.border, width: 0.5)
         view.backgroundColor = Colors.background
+        
+        showData()
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    @IBAction func backButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    private func showData() {
         if result!.error != nil {
             for data in result!.error! {
                 let cardView = HandResultView()

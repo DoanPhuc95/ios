@@ -22,7 +22,6 @@ class MGConnection {
         Alamofire.request(apiRouter).responseJSON { (res) in
             switch res.result {
             case .success:
-                print(res.result.value)
                 let result = Mapper<T>().map(JSONObject:res.result.value)
                 completion(result, nil)
                 break

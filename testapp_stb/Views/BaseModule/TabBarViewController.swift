@@ -8,65 +8,55 @@
 import Foundation
 import UIKit
 
-//enum TabBarItem: Int {
-//    case home, history
-//
-//    var viewController: UIViewController {
-//        let viewController: UIViewController
-//        switch self {
-//            case .home:
-//                let homeController = HomeViewController()
-//                homeController.tabBarItem.image = #imageLiteral(resourceName: "bell")
-//                homeController.tabBarItem.selectedImage = #imageLiteral(resourceName: "bellselected")
-//                homeController.title = "Poker"
-//                viewController = homeController
-//            case .history:
-//                let resultController = ResultViewController()
-//                resultController.tabBarItem.image = #imageLiteral(resourceName: "bell")
-//                resultController.tabBarItem.selectedImage = #imageLiteral(resourceName: "bellselected")
-//                resultController.title = "結果"
-//                viewController = resultController
-//        }
-//        viewController.tabBarItem.imageInsets = UIEdgeInsets(top: -5, left: 0, bottom: 5, right: 0)
-//        viewController.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -15)
-//        return viewController
-//    }
-//}
+enum TabItem {
+    case home, history
+    
+    var title: String {
+        switch self {
+            case .home:
+                return "Poker"
+            case .history:
+                return "履歴"
+        }
+    }
+    
+    var tag: Int {
+        switch self {
+            case .home:
+                return 0
+            case .history:
+                return 1
+        }
+    }
+    
+    var tabController: UINavigationController {
+        let navController = UINavigationController()
+        switch self {
+        case .home:
+            let vc = HomeViewController()
+            navController.setViewControllers([vc], animated: true)
+        case .history:
+            let vc = HistoryViewController()
+            navController.setViewControllers([vc], animated: true)
+        }
+        navController.setNavigationBarHidden(true, animated: true)
+        navController.title = self.title
+        navController.tabBarItem.tag = self.tag
+        navController.tabBarItem.image = #imageLiteral(resourceName: "icon-unselected")
+        navController.tabBarItem.selectedImage = #imageLiteral(resourceName: "icon-selected")
+        return navController
+    }
+}
 
 class TabBarViewController: UITabBarController {
     var subviewControllers:[UIViewController]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let homeController = generateNavController(vc: HomeViewController(), title: "Poker")
-        let historyController = generateNavController(vc: HistoryViewController(), title: "履歴")
-        
-        let subviewControllers = [homeController, historyController]
-        
-        homeController.tabBarItem.image = #imageLiteral(resourceName: "icon-unselected")
-        homeController.tabBarItem.selectedImage = #imageLiteral(resourceName: "icon-selected")
-        homeController.tabBarItem.tag = 0
-        historyController.tabBarItem.image = #imageLiteral(resourceName: "icon-unselected")
-        historyController.tabBarItem.selectedImage = #imageLiteral(resourceName: "icon-selected")
-        historyController.tabBarItem.tag = 1
+        let subviewControllers = [TabItem.home.tabController, TabItem.history.tabController]
         setViewControllers(subviewControllers, animated: true)
-//        selectedIndex = 0
-//        selectedViewController = homeController
-        
-        
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        
-        navigationController?.tabBarItem.title = self.selectedViewController?.title
     }
-    
-    fileprivate func generateNavController(vc: UIViewController, title: String) -> UINavigationController {
-        vc.navigationItem.title = title
-        let navController = UINavigationController(rootViewController: vc)
-        navController.title = title
-        return navController
-    }
-    
 }

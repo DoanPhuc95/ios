@@ -11,6 +11,7 @@ import UIKit
 class HistoryViewController: UIViewController {
     
     @IBOutlet weak var stackHistoryView: UIStackView!
+    @IBOutlet weak var navbar: UIView!
     
     private lazy var db: RealmManager = {
             let realm = RealmManager()
@@ -20,7 +21,8 @@ class HistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initView()
+        view.backgroundColor = Colors.background
+        navbar.addBorder(vBorder: .bottom, color: Colors.border, width: 0.5)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,10 +31,6 @@ class HistoryViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         stackHistoryView.removeAllSubviews()
-    }
-    
-    func initView() {
-        view.backgroundColor = Colors.background
     }
 }
 extension HistoryViewController: RealmDelegate {

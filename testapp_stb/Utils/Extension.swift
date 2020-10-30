@@ -8,22 +8,38 @@
 import Foundation
 import UIKit
 
-extension String {
-    func checkCardValidate() -> Bool {
-        return NSPredicate.init(format: "SELF MATCHES %@", "[SHCDshcd](1[0-3]?|[2-9])").evaluate(with: self)
+enum CardInputCheck {
+    case legal, blank, illegal
+    
+    var isValid: Bool {
+        switch self {
+        case .legal:
+            return true
+        default:
+            return false
+        }
     }
     
-//    static func matchRegex(for regex: String, in text: String) -> [String] {
-//        do {
-//            let regex = try NSRegularExpression(pattern: regex)
-//            let results = regex.matches(in: text, range: NSRange(text.startIndex..., in: text))
-//            return results.map {
-//                String(text[Range($0.range, in: text)!])
-//            }
-//        } catch let error {
-//            return []
-//        }
-//    }
+    var errorText: String {
+        switch self {
+        case .illegal:
+            return "カード指定文字が不正です"
+        case .blank:
+            return "カードを入力してください"
+        default:
+            return ""
+        }
+    }
+}
+
+extension String {
+    func checkCardValidate() -> CardInputCheck {
+        if self.isEmpty { return .blank }
+        if NSPredicate.init(format: "SELF MATCHES %@", "[SHCD](1[0-3]?|[2-9])").evaluate(with: self) {
+            return .legal
+        }
+        return .illegal
+    }
 }
 
 extension NSDate {
@@ -67,6 +83,11 @@ extension UIView {
 
 
 extension UIViewController {
+    private struct additional {
+        static var indicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    }
+    
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.height == UIScreen.main.bounds.height {
@@ -78,9 +99,37 @@ extension UIViewController {
     @objc func keyboardWillClose(notification: NSNotification) {
         self.view.frame = UIScreen.main.bounds
     }
-}
-
-
-extension NotificationCenter {
     
+    func showAnnounceDialog(title: String = "エラー", message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "確認", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    var indicator: UIActivityIndicatorView {
+        set {
+            objc_setAssociatedObject(self, &additional.indicator, newValue, .OBJC_ASSOCIATION_RETAIN)
+            newValue.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+            newValue.hidesWhenStopped = true
+        }
+
+        get {
+            guard let indicator = objc_getAssociatedObject(self, &additional.indicator) as? UIActivityIndicatorView else {
+                return UIActivityIndicatorView()
+            }
+            return indicator
+        }
+    }
+    
+    func showIndicator() {
+        additional.indicator.style = UIActivityIndicatorView.Style.large
+        additional.indicator.center = self.view.center
+        self.view.addSubview(additional.indicator)
+        additional.indicator.startAnimating()
+    }
+    
+    func dismissIndicator() {
+        additional.indicator.stopAnimating()
+    }
 }
+
